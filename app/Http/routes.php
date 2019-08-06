@@ -11,10 +11,13 @@
 |
 */
 
+// HALAMAN FRONTEND
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::auth();
-
-Route::get('/home', 'HomeController@index');
+// HALAMAN ADMIN
+Route::group(['middleware' => ['web']], function(){
+    Route::auth();
+    Route::get('user/admin', 'HomeController@index');
+});
