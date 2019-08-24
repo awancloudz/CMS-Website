@@ -1,4 +1,10 @@
-@extends('layouts.app')
+<?php
+$themelist = App\Theme::where('active','Y')->get();
+foreach($themelist as $theme){
+    $themes = "themes." . $theme->folder . ".index";
+}
+?>
+@extends($themes)
 
 <!-- Main Content -->
 @section('content')
