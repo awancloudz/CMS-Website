@@ -42,6 +42,10 @@ return [
     */
 
     'disks' => [
+        'picture' => [
+            'driver' => 'local',
+            'root' => public_path('slider'),
+        ],
 
         'local' => [
             'driver' => 'local',

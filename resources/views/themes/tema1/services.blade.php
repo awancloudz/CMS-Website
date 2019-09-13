@@ -1,8 +1,8 @@
 <div class="page-in">
         <div class="container">
           <div class="row">
-            <div class="col-lg-6 pull-left"><div class="page-in-name">Services: <span>What We Do?</span></div></div>
-            <div class="col-lg-6 pull-right"><div class="page-in-bread"><span>You are here:</span> <a href="#">Home</a> \ Services</div></div>
+            <div class="col-lg-6 pull-left"><div class="page-in-name"><b>Layanan Kami</b><span></span></div></div>
+            <div class="col-lg-6 pull-right"><div class="page-in-bread"><a href="{{ url('/')}}">Home</a> \ Layanan Kami</div></div>
           </div>
         </div>
       </div>
@@ -20,7 +20,7 @@
         <div class="row">
           <div class="col-lg-6 col-md-6 col-sm-12 marg50">
             <div class="introduction"> 
-              <img src="assets/images/services.jpg">
+              <img src="tema1/assets/images/services.jpg">
             </div>
           </div> 
           <div class="col-lg-6 col-md-6 col-sm-12 marg50">
@@ -93,7 +93,7 @@
       </div>
       <div class="container marg100">
         <div class="row">
-          <div class="col-lg-6 col-md-6 col-sm-12">
+          <div class="col-lg-12 col-md-12 col-sm-12">
             <div class="promo-block">
               <div class="promo-text">Other Services</div>
               <div class="center-line"></div>
@@ -135,67 +135,13 @@
                 </div>
               </div>
           </div>
-          <div class="col-lg-6 col-md-6 col-sm-12">
-            <div class="promo-block">
-              <div class="promo-text">Testimonials</div>
-              <div class="center-line"></div>
-            </div>
-            <div class="marg50">
-              <div class="testimonialrotator skin_default" id="tr1">
-                <div class="testimonial-tobe">
-                  <div class="testtext" style="border:none">Aenean luctus non eros et bibendum. Vivamus facilisis sollicitudin auctor. In tellus ante, porttitor et gravida non, tincidunt lacinia augue. Aliquam accumsan eros nec lectus tempus, sit amet sollicitudin lorem iaculis. Suspendisse velit ticol sodales, viverra sigirton vitae, accumsan orci mauris nec ipsum</div>
-                  <div class="testauthor-img"><img src="assets/images/mike.jpg"></div>
-                  <div class="testauthor">John Doe</div>
-                  <div class="testauthor-desc">Menager CEO</div>
-                  <div class="testauthor-rating">
-                    <ul>
-                      <li><i class="icon-star"></i></li>
-                      <li><i class="icon-star"></i></li>
-                      <li><i class="icon-star"></i></li>
-                      <li><i class="icon-star"></i></li>
-                      <li><i class="icon-star"></i></li>
-                    </ul>
-                  </div>
-                </div>
-                <div class="testimonial-tobe">
-                  <div class="testtext" style="border:none">Duis nec neque bibendum, mollis arcu eget, lacinia sem. Sed nec purus a metus facilisis mollis. Vivamus sollicitudin id sem a blandit. Donec ut imperdiet arcu. Integer aliquet scelerisque aliquet... Suspendisse velit ticol sodales, viverra sigirton vitae, accumsan orci mauris nec ipsum</div>
-                  <div class="testauthor-img"><img src="assets/images/mila.png"></div>
-                  <div class="testauthor">Mila Markovna</div>
-                  <div class="testauthor-desc">Disney Inc.</div>
-                  <div class="testauthor-rating">
-                    <ul>
-                      <li><i class="icon-star"></i></li>
-                      <li><i class="icon-star"></i></li>
-                      <li><i class="icon-star"></i></li>
-                      <li><i class="icon-star"></i></li>
-                    </ul>
-                  </div>
-                </div>
-                <div class="testimonial-tobe">
-                  <div class="testtext" style="border:none">Proin sagittis turpis nisi, sit amet bibendum odio faucibus at. Nunc facilisis ipsum quis fermentum auctor. Curabitur felis lorem, aliquam quis ornare et, luctus a sapien. Nunc sollicitudin metus at condimentum adipiscing. Suspendisse velit ticol sodales, viverra sigirton vitae, accumsan orci mauris nec ipsum</div>
-                  <div class="testauthor-img"><img src="assets/images/mike.png"></div>
-                  <div class="testauthor">Jonathan Smith</div>
-                  <div class="testauthor-desc">Google Corp.</div>
-                  <div class="testauthor-rating">
-                    <ul>
-                      <li><i class="icon-star"></i></li>
-                      <li><i class="icon-star"></i></li>
-                      <li><i class="icon-star"></i></li>
-                      <li><i class="icon-star"></i></li>
-                      <li><i class="icon-star"></i></li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
       <div class="container marg75">
         <div class="row">
           <div class="col-lg-12">
             <div class="promo-block">
-              <div class="promo-text">Our Precious Clients</div>
+              <div class="promo-text">Teknologi yang Kami Gunakan</div>
               <div class="center-line"></div>
             </div>
           </div>
@@ -203,18 +149,12 @@
             <div class="jcarousel-wrapper">
               <div class="jcarousel">
                 <ul>
-                  <li><a href="#"><img src="assets/images/client-1.jpg" alt=""></a></li>
-                  <li><a href="#"><img src="assets/images/client-2.jpg" alt=""></a></li>
-                  <li><a href="#"><img src="assets/images/client-3.jpg" alt=""></a></li>
-                  <li><a href="#"><img src="assets/images/client-5.jpg" alt=""></a></li>
-                  <li><a href="#"><img src="assets/images/client-6.jpg" alt=""></a></li>
-                  <li><a href="#"><img src="assets/images/client-4.jpg" alt=""></a></li>
-                  <li><a href="#"><img src="assets/images/client-1.jpg" alt=""></a></li>
-                  <li><a href="#"><img src="assets/images/client-2.jpg" alt=""></a></li>
-                  <li><a href="#"><img src="assets/images/client-3.jpg" alt=""></a></li>
-                  <li><a href="#"><img src="assets/images/client-5.jpg" alt=""></a></li>
-                  <li><a href="#"><img src="assets/images/client-6.jpg" alt=""></a></li>
-                  <li><a href="#"><img src="assets/images/client-4.jpg" alt=""></a></li>
+                  <li><a href="#"><img src="{{ asset('tech/1.png')}}" alt=""></a></li>
+                  <li><a href="#"><img src="{{ asset('tech/2.png')}}" alt=""></a></li>
+                  <li><a href="#"><img src="{{ asset('tech/3.png')}}" alt=""></a></li>
+                  <li><a href="#"><img src="{{ asset('tech/4.png')}}" alt=""></a></li>
+                  <li><a href="#"><img src="{{ asset('tech/5.png')}}" alt=""></a></li>
+                  <li><a href="#"><img src="{{ asset('tech/6.png')}}" alt=""></a></li>
                 </ul>
               </div>
               <a href="#" class="jcarousel-control-prev">&lsaquo;</a>

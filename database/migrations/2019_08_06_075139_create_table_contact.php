@@ -16,7 +16,7 @@ class CreateTableContact extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('email');
-            $table->string('subject');
+            $table->string('phone');
             $table->text('message');
             $table->enum('read', ['Y','N']);
             $table->timestamps();

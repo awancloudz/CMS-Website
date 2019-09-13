@@ -33,6 +33,7 @@ class Settings extends Model
         'recaptchasitekey',
         'recaptchasecretkey',
         'mailprotocol',
+        'mailhostname',
         'mailusername',
         'mailpassword',
         'mailport',

@@ -14,9 +14,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <?php 
     $namaweb = $web->webname;
+    $logo = $web->logo;
+    $icon = $web->icon;
     ?>
     @endforeach
-    <link href="{{ asset ('tema1/assets/images/favicon.ico')}}" rel="shortcut icon"/>
+    <link href="{{ url('/'.$icon) }}" rel="shortcut icon"/>
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ asset ('tema1/assets/images/apple-touch-icon-144x144-precomposed.png')}}" />
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{ asset ('tema1/assets/images/apple-touch-icon-114x114-precomposed.png')}}" />
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{ asset ('tema1/assets/images/apple-touch-icon-72x72-precomposed.png')}}" />
@@ -41,21 +43,23 @@
             <div class="top_line">
             <div class="container">
                 <div class="row">
+                @foreach($websettings as $web)
                 <div class="col-lg-6 col-md-7 col-sm-12 col-xs-12 pull-left">
                     <ul class="contact-top">
-                    <li><i class="icon-location"></i> 455 Martinson, Los Angeles</li>
-                    <li><i class="icon-mobile"></i> 8 (043) 567 - 89 - 30</li>
-                    <li><i class="icon-mail"></i> support@email.com</li>
+                    <!-- <li><i class="icon-location"></i> 455 Martinson, Los Angeles</li> -->
+                    <li><i class="icon-mobile"></i> {{ $web->phone }}</li>
+                    <li><i class="icon-mail"></i> {{ $web->email }}</li>
                     </ul>
                 </div>
+                @endforeach
                 <div class="col-lg-6 col-md-5 pull-right hidden-phone">
                     <ul class="social-links">
-                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                        <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
-                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                        <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                        <li><a href="#"><i class="fa fa-vk"></i></a></li>
+                        <li><a href="#" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="#" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="#" title="Instagram"><i class="fa fa-instagram"></i></a></li>
+                        <li><a href="#" title="Youtube"><i class="fa fa-youtube"></i></a></li>
+                        <li><a href="#" title="LinkedIn"><i class="fa fa-linkedin"></i></a></li>
+                        <li><a href="#" title="Telegram"><i class="fa fa-telegram"></i></a></li>
                         <li id="search-btn"><a href="#"><i class="icon-search"></i></a></li>
                     </ul>
                     <div class="search-input" id="search-input" style="display: none;">
@@ -72,8 +76,7 @@
                 <div class="container">
                 <div class="row">
                     <div class="col-lg-3 pull-left">
-                        <h3>{{ $namaweb }}</h3>
-                        <!-- <div class="logo"><a href="index-2.html"><img src="assets/images/logo.png" alt=""></a></div> -->
+                        <div class="logo"><a href="{{ url('/')}}"><img src="{{ asset($logo)}}" alt="Motivadea IT Solutions"></a></div>
                     </div>
                     <div class="col-lg-9 pull-right">
                     <div class="menu">
@@ -83,7 +86,7 @@
                         @foreach($webmenu as $menu)
                             @if($menu->id_groupmenu == 1)
                             <li>
-                                <a href="{{ $menu->link }}">{{ $menu->title }}</a>
+                                <a href="{{ url($menu->link) }}">{{ $menu->title }}</a>
                             </li>
                             @endif
                         @endforeach
@@ -115,9 +118,11 @@
     <script type="text/javascript" src="{{ asset ('tema1/assets/js/jquery.parallax-1.1.3.js')}}"></script>
     <script type="text/javascript" src="{{ asset ('tema1/assets/js/jquery.cubeportfolio.min.js')}}"></script>
     <script type="text/javascript" src="{{ asset ('tema1/assets/js/portfolio-main.js')}}"></script>
+    <script type="text/javascript" src="{{ asset ('tema1/assets/js/portfolio-4.js')}}"></script>
     <script type="text/javascript" src="{{ asset ('tema1/assets/js/jcarousel.responsive.js')}}"></script>
     <script type="text/javascript" src="{{ asset ('tema1/assets/js/jquery.jcarousel.min.js')}}"></script>
     <script type="text/javascript" src="{{ asset ('tema1/assets/js/jquery.dlmenu.js')}}"></script>
+    <script type="text/javascript" src="{{ asset ('tema1/assets/js/testimonialrotator.js')}}"></script>
     <script type="text/javascript" src="{{ asset ('tema1/assets/js/main.js')}}"></script>
 </body>
 </html>

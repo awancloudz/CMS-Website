@@ -11,6 +11,9 @@ use App\Post;
 use App\Settings;
 use App\NavMenu;
 use App\Category;
+use App\Portofolio;
+use App\Contact;
+use Session;
 
 class PageController extends Controller
 {
@@ -19,25 +22,31 @@ class PageController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($page)
-    {
+    public function index($link){
         $websettings = Settings::where('id',1)->get();
-        $pages = Pages::where('link',$page)->get();
+        $pages = Pages::where('link',$link)->get();
         $webmenu = NavMenu::where('active','Y')->get();
         $webhome = Pages::where('active','Y')->where('link','/')->get();
         $themelist = Theme::where('active','Y')->get();
+        $categorylist = Portofolio::where('active','=','Y')->groupBy('tags')->orderBy('id', 'asc')->get();
+        $portofoliolist = Portofolio::where('active','=','Y')->orderBy('id', 'asc')->get();
+        $postlist = Post::where('active','=','Y')->orderBy('id', 'asc')->get();
         foreach($themelist as $theme){
             $index = "themes." . $theme->folder . ".page";
             $themes = "themes." . $theme->folder . ".index";
-            $folder = "themes." . $theme->folder . "." . $page;
+            $folder = "themes." . $theme->folder . "." . $link;
             $footer = "themes." . $theme->folder . ".footer";
         }
-        return view($index,compact('folder','themes','pages','websettings','webmenu','webhome','footer'));
+        if($link != 'login'){
+            return view($index,compact('folder','themes','pages','websettings','webmenu','webhome','footer','categorylist','portofoliolist','postlist'));
+        }
+        else{
+            return view('auth.login',compact('folder','themes','pages','websettings','webmenu','webhome','footer','categorylist','portofoliolist','postlist'));
+        }
     }
 
-    public function category($cat)
-    {
-        $selectcat = Category::where('link',$cat)->get();
+    public function category($link){
+        $selectcat = Category::where('link',$link)->get();
         foreach($selectcat as $select){
             $idcat = $select->id;
         }
@@ -53,10 +62,22 @@ class PageController extends Controller
         return view($index,compact('themes','blogpost','websettings','webmenu','webhome'));
     }
 
-    public function blogpost($post)
-    {
+    public function blogpost($link){
         $websettings = Settings::where('id',1)->get();
-        $blogpost = Post::where('link',$post)->get();
+        $blogpost = Post::where('link',$link)->get();
+        $webmenu = NavMenu::where('active','Y')->get();
+        $themelist = Theme::where('active','Y')->get();
+        foreach($themelist as $theme){
+            $index = "themes." . $theme->folder . ".blogpost";
+            $themes = "themes." . $theme->folder . ".index";
+            $footer = "themes." . $theme->folder . ".footer";
+        }
+        return view($index,compact('themes','blogpost','websettings','webmenu','footer'));
+    }
+
+    public function portofolio($link){
+        $websettings = Settings::where('id',1)->get();
+        $blogpost = Post::where('link',$link)->get();
         $webmenu = NavMenu::where('active','Y')->get();
         $webhome = Pages::where('active','Y')->where('link','/')->get();
         $themelist = Theme::where('active','Y')->get();
@@ -85,7 +106,11 @@ class PageController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $input = $request->all();
+        //Simpan Data kategoriproduk
+        $contact = Contact::create($input);
+        Session::flash('flash_message', 'Terima kasih telah menghubungi kami, pesan anda akan kami respon segera.');
+        return redirect('contact');
     }
 
     /**

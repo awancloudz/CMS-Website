@@ -37,6 +37,7 @@ class CreateTableSettings extends Migration
             $table->string('recaptchasitekey');
             $table->string('recaptchasecretkey');
             $table->string('mailprotocol');
+            $table->string('mailhostname');
             $table->string('mailusername');
             $table->string('mailpassword');
             $table->string('mailport');

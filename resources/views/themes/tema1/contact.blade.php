@@ -1,16 +1,21 @@
     <div class="page-in">
         <div class="container">
           <div class="row">
-            <div class="col-lg-6 pull-left"><div class="page-in-name">Contacts: <span>Need Support? Get It!</span></div></div>
-            <div class="col-lg-6 pull-right"><div class="page-in-bread"><span>You are here:</span> <a href="#">Home</a> \ Contacts</div></div>
+            <div class="col-lg-6 pull-left"><div class="page-in-name"><b>Contact</b></div></div>
+            <div class="col-lg-6 pull-right"><div class="page-in-bread"><a href="{{ url('/') }}">Home</a> \ Contact</div></div>
           </div>
         </div>
       </div>
       <div class="container marg75">
         <div class="row">
           <div class="col-lg-12">
+          @include('_partial.flash_message')
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-12">
             <div class="promo-block">
-              <div class="promo-text">Where Find Us?</div>
+              <div class="promo-text">Lokasi kami?</div>
               <div class="center-line"></div>
             </div>
           </div>
@@ -32,29 +37,31 @@
             </div>
             <div class="marg50">
               <div class="row">
-                <form id="contactForm" class="form-style" name="sentMessage"  novalidate="">
+                <form id="contact" class="form-style" name="sentMessage"  novalidate="" action="contact" method="POST">
                   <div class="col-lg-4">
                     <div class="text_cont form-group floating-label-form-group controls">
-                      <input id="name" type="text" placeholder="You Name" required="" data-validation-required-message="Please enter name" class="form-control"><span class="help-block text-danger"></span>
+                      <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                      <input type="hidden" name="read" value="N">
+                      <input name="name" type="text" placeholder="Nama" required="" data-validation-required-message="Silahkan masukkan nama" class="form-control"><span class="help-block text-danger"></span>
                     </div>
                   </div>
                   <div class="col-lg-4">
                     <div class="text_cont form-group floating-label-form-group controls">
-                      <input id="email" type="email" placeholder="You Email" required="" data-validation-required-message="Please enter email" class="form-control"><span class="help-block text-danger"></span>
+                      <input name="email" type="email" placeholder="Email" required="" data-validation-required-message="Silahkan masukkan email" class="form-control"><span class="help-block text-danger"></span>
                     </div>
                   </div>
                   <div class="col-lg-4">
                     <div class="text_cont form-group floating-label-form-group controls">
-                      <input id="phone" type="tel" placeholder="You Phone" required="" data-validation-required-message="Please enter phone number" class="form-control"><span class="help-block text-danger"></span>
+                      <input name="phone" type="tel" placeholder="No.Handphone" required="" data-validation-required-message="Silahkan masukkan no.handphone" class="form-control"><span class="help-block text-danger"></span>
                     </div>
                   </div>
                   <div class="col-lg-12">
                     <div class="text_cont form-group floating-label-form-group controls">
-                      <textarea id="message" cols="40" rows="10" placeholder="Message" required="" data-validation-required-message="Please enter a message." aria-invalid="false" class="form-control"></textarea><span class="help-block text-danger"></span>
+                      <textarea name="message" cols="40" rows="10" placeholder="Isi Pesan" required="" data-validation-required-message="Silahkan masukkan isi pesan" aria-invalid="false" class="form-control"></textarea><span class="help-block text-danger"></span>
                     </div>
                   </div>
                   <div class="col-lg-12"><div id="success"></div></div>
-                  <div class="col-lg-12"><p><button type="submit" class="btn btn-default">Send Message</button></p></div>
+                  <div class="col-lg-12"><p><button type="submit" class="btn btn-default">Kirim</button></p></div>
                 </form>
               </div>
             </div>

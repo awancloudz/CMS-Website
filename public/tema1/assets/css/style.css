@@ -356,9 +356,9 @@ nav.sticky ul li a:before { content: '' }
     font-size:21px;
     padding-bottom: 5px;
 }
-.grid figcaption span:before {
+/* .grid figcaption span:before {
     content: 'by ';
-}
+} */
 .hover-3 figure {
     overflow: hidden;
 }
@@ -455,7 +455,7 @@ nav.sticky ul li a:before { content: '' }
     height: 100%;
 }
 .prlx {
-    background-color: rgba(105, 113, 119, 0.45);
+    background-color: rgba(0, 204, 255, 0.70);
     min-height: 310px;
     max-height: 100%;
 }

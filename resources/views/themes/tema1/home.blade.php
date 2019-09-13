@@ -1,11 +1,13 @@
 @extends($themes)
 
 @section('content')
-<div class="tp-banner-container" style="height:500px;">
-  <div class="tp-banner" >
+<!-- SLIDER -->
+      <div class="tp-banner-container" style="height:500px;">
+        <div class="tp-banner" >
           <ul style="display:none;">
+          @foreach($sliderlist as $slider)
             <li data-transition="fade" data-slotamount="7" data-masterspeed="700" >
-              <img src="tema1/assets/images/fon1.jpg"  alt=""  data-bgfit="cover" data-bgposition="center center" data-bgrepeat="no-repeat">
+              <img src="{{ asset ('slider/'.$slider->picture)}}"  alt=""  data-bgfit="cover" data-bgposition="center center" data-bgrepeat="no-repeat">
               <div class="tp-caption largeblackbg sfb"
                 data-x="center"
                 data-y="95"
@@ -16,7 +18,7 @@
                 data-endspeed="500"
                 data-endeasing="Power4.easeIn"
                 data-captionhidden="on"
-                style="z-index: 4">Refined Modern Corporate Style
+                style="z-index: 4; text-shadow: 1px 1px #4c4c4c;">{{ $slider->title }}
               </div>
               <div class="tp-caption largeborder skewfromrightshort"
                 data-x="center"
@@ -40,7 +42,7 @@
                 data-endspeed="500"
                 data-endeasing="Power4.easeIn"
                 data-captionhidden="on"
-                style="z-index: 9">Pellentesque luctus ac lorem aenean sagittis magna purus vehicsula. Tristique nunc a felis ultricies, ultrices erat<br>Suspendisse velit ticol sodales, viverra sigirton vitae, accumsan orci mauris nec ipsum
+                style="z-index: 9;text-shadow: 1px 1px #4c4c4c;">{!! $slider->description !!}
               </div>
               <div class="tp-caption largebutton lfb"
                 data-x="center"
@@ -52,10 +54,11 @@
                 data-endspeed="500"
                 data-endeasing="Power4.easeIn"
                 data-captionhidden="on"
-                style="z-index: 9"><a href="https://themeforest.net/item/xenia-refined-html-5-css-3-corporate-template/6863456?ref=DankovThemes">Purchase now</a>
+                style="z-index: 9"><a href="{{ url($slider->link)}}">{{ $slider->buttontext }}</a>
               </div>
             </li>
-            <li data-transition="random" data-slotamount="7" data-masterspeed="700" >
+          @endforeach
+            <!-- <li data-transition="random" data-slotamount="7" data-masterspeed="700" >
               <img src="tema1/assets/images/fon2.jpg"  alt=""  data-bgfit="cover" data-bgposition="center center" data-bgrepeat="no-repeat">
               <div class="tp-caption largeblackbg sfb"
                 data-x="30"
@@ -231,9 +234,10 @@
                 data-captionhidden="on"
                 style="z-index: 9"><a href="https://themeforest.net/item/xenia-refined-html-5-css-3-corporate-template/6863456?ref=DankovThemes">Purchase now</a>
               </div>
-            </div>
-          </li>
-        </ul>
+            </li> -->
+
+          </ul>
+        </div>
       </div>
       <script type="text/javascript">
         var revapi;
@@ -247,13 +251,17 @@
             });
         }); //ready
       </script>
+
+<!-- OUR SERVICE -->
       <div class="container marg75">
         <div class="row">
           <div class="col-lg-12">
             <div class="promo-block">
-              <div class="promo-text">Our Services</div>
+              <div class="promo-text"><b>SELAMAT DATANG DI MOTIVADEA IT SOLUTIONS</b></div>
               <div class="center-line"></div>
             </div>
+            <div class="promo-paragraph">Teknologi informasi merupakan inti dari bagaimana Anda melakukan bisnis Anda dan bagaimana model bisnis Anda sendiri berkembang. 
+Lalu apa yang menjadikan kami percaya diri bisa menjadi Konsultan Teknologi anda ? Layanan apa saja yang bisa kami berikan untuk anda ?</div>
           </div>
         </div>
       </div>
@@ -261,43 +269,45 @@
         <div class="row">
           <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 col-ms-12 animated" data-animation-delay="0.3s" data-animation="fadeInUp">
             <div class="hi-icon-effect marg50">
-              <div class="hi-icon icon-lightbulb"></div>
-              <div class="service-name">Minimal Design</div>
-              <div class="service-text">Suspendisse velit ticol sodales, viverra sigirton vitae, accumsan orci mauris nec ipsum</div>
+              <div class="hi-icon icon-globe"></div>
+              <div class="service-name">Pembuatan Website</div>
+              <div class="service-text">Kami membuat website menggunakan teknologi terbaru dengan desain yang menarik serta responsif, bisa diakses di perangkat apapun.</div>
             </div>
           </div>
           <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 col-ms-12 animated" data-animation-delay="0.6s" data-animation="fadeInUp">
             <div class="hi-icon-effect marg50">
-              <div class="hi-icon icon-heart"></div>
-              <div class="service-name">Love Our Clients</div>
-              <div class="service-text">Suspendisse velit ticol sodales, viverra sigirton vitae, accumsan orci mauris nec ipsum</div>
+              <div class="hi-icon icon-mobile"></div>
+              <div class="service-name">Aplikasi Smartphone</div>
+              <div class="service-text">Pembuatan aplikasi Android & IOS. Ide dari anda akan kami wujudkan dalam bentuk aplikasi di smartphone anda.</div>
            </div>
           </div>
           <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 col-ms-12 animated" data-animation-delay="0.9s" data-animation="fadeInUp">
             <div class="hi-icon-effect marg50">
-              <div class="hi-icon icon-params"></div>
-              <div class="service-name">Powerful & Flexible</div>
-              <div class="service-text">Suspendisse velit ticol sodales, viverra sigirton vitae, accumsan orci mauris nec ipsum</div>
+              <div class="hi-icon icon-database"></div>
+              <div class="service-name">Konsultan & Audit IT</div>
+              <div class="service-text">Kami menyediakan jasa Konsultan & Audit IT untuk infrastruktur mau pun sistem pada bisnis/perusahaan anda.</div>
            </div>
           </div>
           <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 col-ms-12 animated" data-animation-delay="1.2s" data-animation="fadeInUp">
             <div class="hi-icon-effect marg50">
-              <div class="hi-icon icon-globe"></div>
-              <div class="service-name">Premium Support</div>
-              <div class="service-text">Suspendisse velit ticol sodales, viverra sigirton vitae, accumsan orci mauris nec ipsum</div>
+              <div class="hi-icon icon-desktop"></div>
+              <div class="service-name">Internet Marketing</div>
+              <div class="service-text">Jasa optimasi pemasaran website anda, agar lebih menjangkau berbagai kalangan. Menjadi no.1 di setiap pencarian kata kunci google.</div>
             </div>
           </div>
         </div>
       </div>
+
+<!-- PORTOFOLIO -->
       <div class="container-color marg75">
         <div class="container">
           <div class="row">
             <div class="col-lg-12">
               <div class="promo-block">
-                <div class="promo-text">Recent Works</div>
+                <div class="promo-text"><b>Portofolio Kami</b></div>
                 <div class="center-line"></div>
               </div>
-              <div class="promo-paragraph">Pellentesque luctus ac lorem id luctus. Aenean sagittis magna sit amet purus vehicsula. Tristique nunc a felis ultrices phasellus vitae ultrices lectus, eget posuere est. Win none ipsum suspendisse eu velit sodales, viverra lorem vitae, accumsan orci sagittis</div>
+              <div class="promo-paragraph">Berikut beberapa pekerjaan di Instansi maupun Perusahaan yang telah selesai kami kerjakan, kami rangkum dalam satu galeri portofolio.</div>
             </div>
           </div>
         </div>
@@ -305,92 +315,31 @@
           <div class="grid hover-3">
             <div class="cbp-l-grid-projects" id="grid-container">
               <ul>
+                @foreach($portofoliolist as $portofolio)
                 <li class="cbp-item animated" data-animation-delay="0.3s" data-animation="fadeIn">
                   <div class="portfolio-main">
                     <figure>
-                      <img src="tema1/assets/images/11.jpg" alt="">
+                      <img src="{{ asset ('klien/'.$portofolio->picture)}}" alt="{{ $portofolio->title }}">
                       <figcaption>
-                        <h3>Gadgets</h3>
-                        <span>Jacob Cummings</span>
-                        <a href="assets/images/11.jpg" class="portfolio-attach cbp-lightbox" data-title="Gadgets<br>by Jacob Cummings"><i class="icon-search"></i></a>
-                        <a href="portfolio/project1.html" class="portfolio-search cbp-singlePageInline"><i class="icon-attach"></i></a>
+                        <h3>{{ $portofolio->title }}</h3>
+                        <span>&copy; Motivadea IT Solutions</span>
+                        <a href="{{ asset ('klien/'.$portofolio->picture)}}" class="portfolio-attach cbp-lightbox" data-title="{{ $portofolio->title . '<br>' . $portofolio->description }}"><i class="icon-search"></i></a>
+                        <!-- <a href="#" class="portfolio-search cbp-singlePageInline"><i class="icon-attach"></i></a> -->
                       </figcaption>
                     </figure> 
                   </div>
                 </li>
-                <li class="cbp-item animated" data-animation-delay="0.5s" data-animation="fadeIn">
-                  <div class="portfolio-main">
-                    <figure>
-                      <img src="tema1/assets/images/22.jpg" alt="">
-                      <figcaption>
-                        <h3>Numbeez</h3>
-                        <span>Keren Hossy</span>
-                        <a href="assets/images/22.jpg" class="portfolio-attach cbp-lightbox" data-title="Numbeez<br>by Keren Hossy"><i class="icon-search"></i></a>
-                        <a href="portfolio/project2.html" class="portfolio-search cbp-singlePageInline"><i class="icon-attach"></i></a>
-                      </figcaption>
-                    </figure> 
-                  </div>
-                </li>
-                <li class="cbp-item animated" data-animation-delay="0.7s" data-animation="fadeIn">
-                  <div class="portfolio-main">
-                    <figure>
-                      <img src="tema1/assets/images/33.jpg" alt="">
-                      <figcaption>
-                        <h3>Kergiwax</h3>
-                        <span>Jacob Cummings</span>
-                        <a href="assets/images/33.jpg" class="portfolio-attach cbp-lightbox" data-title="Kergiwax<br>by Jacob Cummings"><i class="icon-search"></i></a>
-                        <a href="portfolio/project3.html" class="portfolio-search cbp-singlePageInline"><i class="icon-attach"></i></a>
-                      </figcaption>
-                    </figure> 
-                  </div>
-                </li>
-                <li class="cbp-item animated" data-animation-delay="0.9s" data-animation="fadeIn">
-                  <div class="portfolio-main">
-                    <figure>
-                      <img src="tema1/assets/images/44.jpg" alt="">
-                      <figcaption>
-                        <h3>Thanks!</h3>
-                        <span>MoneyDesktop</span>
-                        <a href="assets/images/44.jpg" class="portfolio-attach cbp-lightbox" data-title="Thanks!<br>by MoneyDesktop"><i class="icon-search"></i></a>
-                        <a href="portfolio/project4.html" class="portfolio-search cbp-singlePageInline"><i class="icon-attach"></i></a>
-                      </figcaption>
-                    </figure> 
-                  </div>
-                </li>
-                <li class="cbp-item animated" data-animation-delay="1.1s" data-animation="fadeIn">
-                  <div class="portfolio-main">
-                    <figure>
-                      <img src="tema1/assets/images/55.jpg" alt="">
-                      <figcaption>
-                        <h3>Think Industries Alt</h3>
-                        <span>Gustav Holtz</span>
-                        <a href="assets/images/55.jpg" class="portfolio-attach cbp-lightbox" data-title="Think Industries Alt<br>by Gustav Holtz"><i class="icon-search"></i></a>
-                        <a href="portfolio/project5.html" class="portfolio-search cbp-singlePageInline"><i class="icon-attach"></i></a>
-                      </figcaption>
-                    </figure> 
-                  </div>
-                </li>
-                <li class="cbp-item animated" data-animation-delay="1.3s" data-animation="fadeIn">
-                  <div class="portfolio-main">
-                    <figure>
-                      <img src="tema1/assets/images/66.jpg" alt="">
-                      <figcaption>
-                        <h3>Lapland</h3>
-                        <span>Julia Romer</span>
-                        <a href="assets/images/66.jpg" class="portfolio-attach cbp-lightbox" data-title="Lapland<br>by Julia Romer"><i class="icon-search"></i></a>
-                        <a href="portfolio/project6.html" class="portfolio-search cbp-singlePageInline"><i class="icon-attach"></i></a>
-                      </figcaption>
-                    </figure> 
-                  </div>
-                </li>
+                @endforeach
                </ul>
             </div>
-            <div class="col-lg-12">
+            <!-- <div class="col-lg-12">
               <div class="button-center"><a href="portfolio/loadmore.html" class="btn-simple cbp-l-loadMore-button-link">Load Full Portfolio</a></div>
-            </div>
+            </div> -->
           </div>  
         </div>
       </div>
+
+<!-- TESTIMONIAL -->
       <div class="prl-1">
         <div class="prlx">
           <div class="container">
@@ -407,16 +356,16 @@
                     </ol>
                     <div class="carousel-inner">
                       <div class="item active">
-                        <p class="testimonial-quote">Phasellus vitae ultrices lectus, eget posuere est. In non mi ipsum. Suspendisse eu velit sodales, viverra lorem vitae accumsan. Mauris nec ipsum tempus, lorem sodales ante praesent quis interdum sapien</p>
-                        <p class="testimonial-author">John Doe</p>
+                        <p class="testimonial-quote">Bekerja sama dengan Motivadea IT Solutions adalah keputusan terbaik yang pernah saya buat untuk mengembangkan bisnis saya. Sistem jadi lebih baik dari yang sebelumnya masih konvensional. Kompetensi mereka tidak diragukan lagi.</p>
+                        <p class="testimonial-author">Bp.Sumadi - Umbul Tirta Sumur Artesis</p>
                       </div>
                       <div class="item">
-                        <p class="testimonial-quote">Duis nec neque bibendum, mollis arcu eget, lacinia sem. Sed nec purus a metus facilisis mollis. Vivamus sollicitudin id sem a blandit. Donec ut imperdiet arcu. Integer aliquet scelerisque aliquet.</p>
-                        <p class="testimonial-author">Mila Markovna</p>
+                        <p class="testimonial-quote">Jujur saja saya orang yang awam tentang IT, namun setelah berkonsultasi secara bertahap dengan Motivadea IT Solutions saya mulai paham bahwa jika bisnis yang sudah berkembang harus menggunakan sistem yang canggih.</p>
+                        <p class="testimonial-author">Bp.Aries - Aries Frozen Food & Burger</p>
                       </div>
                       <div class="item">
-                        <p class="testimonial-quote">Proin sagittis turpis nisi, sit amet bibendum odio faucibus at. Nunc facilisis ipsum quis fermentum auctor. Curabitur felis lorem, aliquam quis ornare et, luctus a sapien nunc sollicitudin.</p>
-                        <p class="testimonial-author">Gustav Holtz</p>
+                        <p class="testimonial-quote">Saya mau buat sistem untuk instansi saya, namun dalam benak dan bayangan saya sistem ini terlalu rumit dan bahkan mahal. Setelah saya berkonsultasi dengan Motivadea IT Solutions, semua yang saya bayangkan tadi serasa sirna karena di tangan ahli IT mereka semua jadi mudah. </p>
+                        <p class="testimonial-author">Bp. I Wayan Suarta - Denpasar Bali</p>
                       </div>
                       <div class="item">
                         <p class="testimonial-quote">Aenean luctus non eros et bibendum. Vivamus facilisis sollicitudin auctor. In tellus ante, porttitor et gravida non, tincidunt lacinia augue. </p>
@@ -432,18 +381,23 @@
           </div>
         </div>
       </div>
+
+<!-- ABOUT --> <!-- RECENT POST -->
       <div class="container marg75">
         <div class="row animated-area">
           <div class="col-lg-6 col-md-6 col-sm-12 animated" data-animation-delay="0.3s" data-animation="fadeInLeft">
             <div class="promo-block">
-              <div class="promo-text">About Company</div>
+              <div class="promo-text">Tentang Kami</div>
               <div class="center-line"></div>
             </div>
             <div class="marg50">
-              <p class="about-text"><span class="first-letter">C</span>hasellus vitae ultrices lectus, eget posuere est. In non mi ipsum. Suspendisse velit ticol sodales, viverra lorem vitae, accumsan orci. Mauris nec ipsum tempus, laorei lorem vel, sodales ante. Praesent quis interdum sapien, et pulvinar leo. Vivamus mattis fermentum eros vel ullamcorper. Integer egestas metus vitae mi molestie, ac euismod quam vestibulum. Pellentesque ac molestie eros. Praesent at nunc vel est tempor aliqua.</p>
+              <p class="about-text"><span class="first-letter">K</span>ami adalah sebuah perusahaan yang bergerak di bidang jasa konsultan teknologi informasi dan pengembang 
+perangkat lunak baik berbasis Website maupun Mobile Apps (aplikasi yang berjalan di Smartphone). 
+Didirikan di Semarang pada tanggal 30 September 2009, telah berpengalaman dan dipercaya menyelesaikan 
+pekerjaan di berbagai Instansi maupun Perusahaan Swasta di seluruh Indonesia.</p>
               <ul class="list-check">
-                <li><i class="icon-ok"></i> Clean And Minimal Design</li>
-                <li><i class="icon-ok"></i> We Love Our Clients</li>
+                <li><i class="icon-ok"></i> Clean Code & Minimalis Design</li>
+                <li><i class="icon-ok"></i> Responsive on All Devices</li>
                 <li><i class="icon-ok"></i> Powerful & Flexible Settings</li>
                 <li><i class="icon-ok"></i> Online Premium Support</li>
               </ul>
@@ -451,45 +405,35 @@
           </div>
           <div class="col-lg-6 col-md-6 col-sm-12 animated" data-animation-delay="0.3s" data-animation="fadeInRight">
             <div class="promo-block">
-              <div class="promo-text">Recent Post</div>
+              <div class="promo-text">Blog Terbaru</div>
               <div class="center-line"></div>
             </div>
             <div class="row marg50">
+            @foreach($postlist as $post)
               <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 col-ms-12">
                 <div class="blog-main">
                   <div class="blog-images">
                     <div class="view view-fifth">
-                      <img src="tema1/assets/images/blog1.jpg" alt="">
-                      <div class="mask"><a href="#" class="btn-blog">Read More</a></div>
+                      <img src="{{ asset('blogimg/'.$post->picture)}}" alt="">
+                      <div class="mask"><a href="{{ url('post/'.$post->link)}}" class="btn-blog">Selengkapnya</a></div>
                     </div>
                   </div>
-                  <div class="blog-icon"><i class="icon-music"></i></div>
-                  <div class="blog-name"><a href="#">Taresent very bear</a></div>
-                  <div class="blog-desc">Fabruary 17, 2017 by <a href="#">DankovThemes</a>, in <a href="#">Envato</a></div>
+                  <div class="blog-name"><a href="{{ url('post/'.$post->link)}}">{{ $post->title}}</a></div>
+                  <div class="blog-desc">{{ $post->created_at }} by <a href="#">Motivadea IT Solutions</a>, in <a href="{{ url('category/'.$post->category->link)}}">{{ $post->category->title }}</a></div>
                 </div>
               </div>
-              <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 col-ms-12">
-                <div class="blog-main">
-                  <div class="blog-images">
-                    <div class="view view-fifth">
-                      <img src="tema1/assets/images/blog2.jpg" alt="">
-                      <div class="mask"><a href="#" class="btn-blog">Read More</a></div>
-                    </div>
-                  </div>
-                  <div class="blog-icon"><i class="icon-pencil"></i></div>
-                  <div class="blog-name"><a href="#">Premium fermentum</a></div>
-                  <div class="blog-desc">March 17, 2017 by <a href="#">Admin</a>, in <a href="#">Envato</a></div>
-                </div>
-              </div>
+            @endforeach
             </div>
           </div>
         </div>
       </div>
-      <div class="container marg75">
+
+<!-- OUR CLIENT -->
+      <div class="container marg75 animated-area">
         <div class="row">
           <div class="col-lg-12">
             <div class="promo-block">
-              <div class="promo-text">Our Clients</div>
+              <div class="promo-text">Teknologi yang Kami Gunakan</div>
               <div class="center-line"></div>
             </div>
           </div>
@@ -497,18 +441,12 @@
             <div class="jcarousel-wrapper">
               <div class="jcarousel animated-area">
                 <ul>
-                  <li class="animated" data-animation-delay="0.3s" data-animation="fadeInUp"><a href="#"><img src="tema1/assets/images/client-1.jpg" alt=""></a></li>
-                  <li class="animated" data-animation-delay="0.5s" data-animation="fadeInDown"><a href="#"><img src="tema1/assets/images/client-2.jpg" alt=""></a></li>
-                  <li class="animated" data-animation-delay="0.7s" data-animation="fadeInUp"><a href="#"><img src="tema1/assets/images/client-3.jpg" alt=""></a></li>
-                  <li class="animated" data-animation-delay="0.9s" data-animation="fadeInDown"><a href="#"><img src="tema1/assets/images/client-5.jpg" alt=""></a></li>
-                  <li class="animated" data-animation-delay="1.1s" data-animation="fadeInUp"><a href="#"><img src="tema1/assets/images/client-6.jpg" alt=""></a></li>
-                  <li class="animated" data-animation-delay="1.3s" data-animation="fadeInDown"><a href="#"><img src="tema1/assets/images/client-4.jpg" alt=""></a></li>
-                  <li><a href="#"><img src="tema1/assets/images/client-1.jpg" alt=""></a></li>
-                  <li><a href="#"><img src="tema1/assets/images/client-2.jpg" alt=""></a></li>
-                  <li><a href="#"><img src="tema1/assets/images/client-3.jpg" alt=""></a></li>
-                  <li><a href="#"><img src="tema1/assets/images/client-5.jpg" alt=""></a></li>
-                  <li><a href="#"><img src="tema1/assets/images/client-6.jpg" alt=""></a></li>
-                  <li><a href="#"><img src="tema1/assets/images/client-4.jpg" alt=""></a></li>
+                  <li class="animated" data-animation-delay="0.3s" data-animation="fadeInUp"><a href="#"><img src="{{ asset('tech/1.png')}}" alt=""></a></li>
+                  <li class="animated" data-animation-delay="0.5s" data-animation="fadeInDown"><a href="#"><img src="{{ asset('tech/2.png')}}" alt=""></a></li>
+                  <li class="animated" data-animation-delay="0.7s" data-animation="fadeInUp"><a href="#"><img src="{{ asset('tech/3.png')}}" alt=""></a></li>
+                  <li class="animated" data-animation-delay="0.9s" data-animation="fadeInDown"><a href="#"><img src="{{ asset('tech/4.png')}}" alt=""></a></li>
+                  <li class="animated" data-animation-delay="1.1s" data-animation="fadeInUp"><a href="#"><img src="{{ asset('tech/5.png')}}" alt=""></a></li>
+                  <li class="animated" data-animation-delay="1.3s" data-animation="fadeInDown"><a href="#"><img src="{{ asset('tech/6.png')}}" alt=""></a></li>
                 </ul>
               </div>
               <a href="#" class="jcarousel-control-prev">&lsaquo;</a>
@@ -517,27 +455,6 @@
           </div>
         </div>
       </div>
-      <div class="prl-3 marg50 twitter-footer">
-        <div class="prlx-3">
-          <div class="container marg75">
-            <div class="row">
-              <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 col-ms-12">
-                <div class="twit-icon"><i class="fa fa-twitter"></i></div>
-              </div>
-              <div class="col-lg-10 col-md-10 col-sm-10 col-xs-11 col-ms-12">
-                <div class="tweet"></div>
-              </div>
-              <div class="col-lg-1 col-md-1 col-sm-1 hidden-xs">
-                <div class="paginat">
-                  <a id="prev">&lsaquo;</a>
-                  <a id="next">&rsaquo;</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
 @endsection
 
 @section('footer')
